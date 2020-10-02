@@ -6,7 +6,7 @@ public class Producto {
 	private String nombre;
 	private String descripcion_corta;
 	private String desccripcion_larga;
-	private Long precio_unitario;
+	private double precio_unitario;
 	
 	public String getId() {
 		return id;
@@ -32,10 +32,10 @@ public class Producto {
 	public void setDesccripcion_larga(String desccripcion_larga) {
 		this.desccripcion_larga = desccripcion_larga;
 	}
-	public Long getPrecio_unitario() {
+	public double getPrecio_unitario() {
 		return precio_unitario;
 	}
-	public void setPrecio_unitario(Long precio_unitario) {
+	public void setPrecio_unitario(double precio_unitario) {
 		this.precio_unitario = precio_unitario;
 	}
 

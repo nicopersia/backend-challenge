@@ -13,6 +13,11 @@ public class ProductoServiceImpl implements ProductoService{
 	
 	@Autowired
 	ProductoDao productoDao;
+	
+	@Override
+	public Producto getProducto(String id) {
+		return productoDao.getProducto(id);
+	}
 
 	@Override
 	public List<Producto> getAllProductos() {
@@ -23,6 +28,16 @@ public class ProductoServiceImpl implements ProductoService{
 	public void create(Producto producto) {
 		productoDao.create(producto);
 		
+	}
+	
+	@Override
+	public void update(Producto producto) {
+		productoDao.update(producto);
+	}
+	
+	@Override
+	public void delete(String id) {
+		productoDao.delete(id);
 	}
 
 }
