@@ -1,8 +1,8 @@
 version: '3'
 services:
-  docker-mysql:
+  db:
     restart: always
-    container_name: docker-mysql
+    container_name: db
     image: mysql
     environment:
       MYSQL_DATABASE: pizzeria
@@ -21,10 +21,14 @@ services:
     restart: on-failure
     build: ./
     expose:
-      - "8080"
+      - "9090"
     ports:
-      - 8080:8080
+      - 9090:9090
     environment:
       WAIT_HOSTS: mysql:3306
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/pizzeria?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
     depends_on:
-      - docker-mysql
+      - db
+ 
